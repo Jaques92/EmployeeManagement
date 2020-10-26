@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stass\\Source\\Repos\\EmployeeManagement\\EmployeeManagement.csproj": {}
+    "C:\\Users\\Jaques.Greyling\\Documents\\GitHub\\EmployeeManagement\\EmployeeManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stass\\Source\\Repos\\EmployeeManagement\\EmployeeManagement.csproj": {
+    "C:\\Users\\Jaques.Greyling\\Documents\\GitHub\\EmployeeManagement\\EmployeeManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stass\\Source\\Repos\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectUniqueName": "C:\\Users\\Jaques.Greyling\\Documents\\GitHub\\EmployeeManagement\\EmployeeManagement.csproj",
         "projectName": "EmployeeManagement",
-        "projectPath": "C:\\Users\\stass\\Source\\Repos\\EmployeeManagement\\EmployeeManagement.csproj",
-        "packagesPath": "C:\\Users\\stass\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stass\\Source\\Repos\\EmployeeManagement\\obj\\",
+        "projectPath": "C:\\Users\\Jaques.Greyling\\Documents\\GitHub\\EmployeeManagement\\EmployeeManagement.csproj",
+        "packagesPath": "C:\\Users\\Jaques.Greyling\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jaques.Greyling\\Documents\\GitHub\\EmployeeManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\stass\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jaques.Greyling\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

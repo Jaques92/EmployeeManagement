@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeManagement.Migrations
 {
-    public partial class MyBaseMigration : Migration
+    public partial class BaseMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,7 @@ namespace EmployeeManagement.Migrations
                     EmployeeID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeName = table.Column<string>(nullable: false),
-                    EmployeeSurnameName = table.Column<string>(nullable: false),
+                    EmployeeSurname = table.Column<string>(nullable: false),
                     EmployeeEmail = table.Column<string>(nullable: false),
                     EmployeePassword = table.Column<string>(nullable: false),
                     EmployeeStartDate = table.Column<DateTime>(nullable: false),
