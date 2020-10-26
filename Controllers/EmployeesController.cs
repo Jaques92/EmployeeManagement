@@ -31,7 +31,7 @@ namespace EmployeeManagement.Controllers
             {
                 return NotFound();
             }
-
+            setRoleList();
             var employee = await _context.Employees
                 .FirstOrDefaultAsync(m => m.EmployeeID == id);
             if (employee == null)
@@ -43,8 +43,9 @@ namespace EmployeeManagement.Controllers
         }
 
         // GET: Employees/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            setRoleList();
             return View();
         }
 
@@ -77,6 +78,7 @@ namespace EmployeeManagement.Controllers
             {
                 return NotFound();
             }
+            setRoleList(employee.RoleID);
             return View(employee);
         }
 
@@ -147,6 +149,18 @@ namespace EmployeeManagement.Controllers
         private bool EmployeeExists(int id)
         {
             return _context.Employees.Any(e => e.EmployeeID == id);
+        }
+
+        private void setRoleList(int? RoleId = null)
+        {
+            var roles = _context.Roles.ToList().Select(x =>
+                       new SelectListItem()
+                       {
+                           Value = x.RoleID.ToString(),
+                           Text = x.RoleName,
+                           Selected = x.RoleID == RoleId
+                       });
+            ViewBag.Roles = roles;
         }
     }
 }
