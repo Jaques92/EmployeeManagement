@@ -45,6 +45,7 @@ namespace EmployeeManagement.Controllers
         // GET: Tasks/Create
         public IActionResult Create()
         {
+            setEmployeeList();
             return View();
         }
 
@@ -61,6 +62,7 @@ namespace EmployeeManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            setEmployeeList();
             return View(task);
         }
 
@@ -112,6 +114,7 @@ namespace EmployeeManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            setEmployeeList();
             return View(task);
         }
 
@@ -147,6 +150,25 @@ namespace EmployeeManagement.Controllers
         private bool TaskExists(int id)
         {
             return _context.Tasks.Any(e => e.TaskID == id);
+        }
+
+
+        private void setEmployeeList(List<int> employeeIds = null)
+        {
+            //var employees = _context.Employees.ToList().Select(x =>
+            //           new SelectListItem()
+            //           {
+            //               Value = x.EmployeeID.ToString(),
+            //               Text = x.EmployeeName,
+            //               //Selected = false employeeIds.Contains(x.EmployeeID)
+            //           });
+            //ViewBag.Employees = employees;
+
+            var employees = _context.Employees.Select(c => new {
+                 c.EmployeeID,
+                 c.EmployeeName
+            }).ToList();
+            ViewBag.Employees = new MultiSelectList(employees, "EmployeeId", "EmployeeName");
         }
     }
 }

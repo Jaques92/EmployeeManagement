@@ -62,6 +62,7 @@ namespace EmployeeManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            setRoleList();
             return View(employee);
         }
 
@@ -114,6 +115,7 @@ namespace EmployeeManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            setRoleList();
             return View(employee);
         }
 
