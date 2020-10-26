@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201026105014_MyBaseMigration")]
-    partial class MyBaseMigration
+    [Migration("20201026172906_BaseMigration")]
+    partial class BaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,7 +85,7 @@ namespace EmployeeManagement.Migrations
 
                     b.Property<string>("EmployeeSurname")
                         .IsRequired()
-                        .HasColumnName("EmployeeSurnameName")
+                        .HasColumnName("EmployeeSurname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RoleID")
