@@ -54,7 +54,7 @@ namespace EmployeeManagement.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,EmployeeSurnameName,EmployeeEmail,EmployeePassword,EmployeeStartDate,EmployeeEndDate,EmployeeImage,RoleID")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,EmployeeSurname,EmployeeEmail,EmployeePassword,EmployeeStartDate,EmployeeEndDate,EmployeeImage,RoleID")] Employee employee)
         {
             if (ModelState.IsValid)
             {

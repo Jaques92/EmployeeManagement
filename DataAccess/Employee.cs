@@ -21,7 +21,7 @@ namespace EmployeeManagement.DataAccess
         [Required]
         public string EmployeeName { get; set; }
 
-        [Column("EmployeeSurnameName")]
+        [Column("EmployeeSurname")]
         [Required]
         public string EmployeeSurname { get; set; }
 
