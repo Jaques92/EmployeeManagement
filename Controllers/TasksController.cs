@@ -45,7 +45,7 @@ namespace EmployeeManagement.Controllers
         // GET: Tasks/Create
         public IActionResult Create()
         {
-            setEmployeeList();
+            //setEmployeeList();
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace EmployeeManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            setEmployeeList();
+            //setEmployeeList();
             return View(task);
         }
 
@@ -114,7 +114,7 @@ namespace EmployeeManagement.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            setEmployeeList();
+            //setEmployeeList();
             return View(task);
         }
 
