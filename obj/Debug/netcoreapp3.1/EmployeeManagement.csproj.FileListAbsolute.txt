@@ -367,3 +367,4 @@ C:\Users\stass\Source\Repos\EmployeeManagement\obj\Debug\netcoreapp3.1\staticweb
 C:\Users\stass\Source\Repos\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.dll
 C:\Users\stass\Source\Repos\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.pdb
 C:\Users\stass\Source\Repos\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.genruntimeconfig.cache
+C:\Users\stass\Source\Repos\EmployeeManagement\obj\Debug\netcoreapp3.1\EmployeeManagement.csprojAssemblyReference.cache
