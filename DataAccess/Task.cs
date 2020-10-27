@@ -26,7 +26,7 @@ namespace EmployeeManagement.DataAccess
 
         [Column("TaskDuration")]
         [Required]
-        public string TaskDuration { get; set; }
+        public int TaskDuration { get; set; }
 
         [NotMapped]
         public List<int> EmployeeIds { get; set; }

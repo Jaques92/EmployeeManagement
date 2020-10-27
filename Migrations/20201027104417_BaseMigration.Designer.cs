@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201027052613_BaseMigration")]
+    [Migration("20201027104417_BaseMigration")]
     partial class BaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,6 +107,41 @@ namespace EmployeeManagement.Migrations
                     b.HasIndex("RoleID");
 
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            EmployeeID = 1,
+                            EmployeeEmail = "jaquesg@company.co.za",
+                            EmployeeEndDate = new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(803),
+                            EmployeeName = "Jaques",
+                            EmployeePassword = "1234",
+                            EmployeeStartDate = new DateTime(2020, 10, 27, 12, 44, 17, 46, DateTimeKind.Local).AddTicks(9756),
+                            EmployeeSurname = "Greyling",
+                            RoleID = 1
+                        },
+                        new
+                        {
+                            EmployeeID = 2,
+                            EmployeeEmail = "johanr@company.co.za",
+                            EmployeeEndDate = new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2068),
+                            EmployeeName = "Johan",
+                            EmployeePassword = "qwer",
+                            EmployeeStartDate = new DateTime(2020, 10, 27, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2054),
+                            EmployeeSurname = "Rogers",
+                            RoleID = 2
+                        },
+                        new
+                        {
+                            EmployeeID = 3,
+                            EmployeeEmail = "stacys@company.co.za",
+                            EmployeeEndDate = new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2101),
+                            EmployeeName = "Stacy",
+                            EmployeePassword = "q1w2e3",
+                            EmployeeStartDate = new DateTime(2020, 10, 27, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2100),
+                            EmployeeSurname = "Smith",
+                            RoleID = -1
+                        });
                 });
 
             modelBuilder.Entity("EmployeeManagement.DataAccess.Role", b =>
@@ -164,10 +199,9 @@ namespace EmployeeManagement.Migrations
                         .HasColumnName("TaskDesc")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TaskDuration")
-                        .IsRequired()
+                    b.Property<int>("TaskDuration")
                         .HasColumnName("TaskDuration")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<string>("TaskName")
                         .IsRequired()
@@ -177,6 +211,29 @@ namespace EmployeeManagement.Migrations
                     b.HasKey("TaskID");
 
                     b.ToTable("Tasks");
+
+                    b.HasData(
+                        new
+                        {
+                            TaskID = 1,
+                            TaskDesc = "Create DB according to specification",
+                            TaskDuration = 5,
+                            TaskName = "Create DB"
+                        },
+                        new
+                        {
+                            TaskID = 2,
+                            TaskDesc = "Create API according to specification",
+                            TaskDuration = 4,
+                            TaskName = "Create API"
+                        },
+                        new
+                        {
+                            TaskID = 3,
+                            TaskDesc = "Create UI according to specification",
+                            TaskDuration = 4,
+                            TaskName = "Create UI"
+                        });
                 });
 
             modelBuilder.Entity("EmployeeManagement.DataAccess.ActiveTask", b =>
