@@ -62,7 +62,7 @@ namespace EmployeeManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("WIPID,TaskID,EmployeeID,EmployeeCurrentRate,TaskStartDate,TaskEndDate,TimeCompleted")] ActiveTask activeTask)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && maxDailyWorkHours(activeTask.EmployeeID, activeTask.TaskStartDate))
             {
                 _context.Add(activeTask);
                 await _context.SaveChangesAsync();
@@ -72,6 +72,7 @@ namespace EmployeeManagement.Controllers
             ViewData["TaskID"] = new SelectList(_context.Tasks, "TaskID", "TaskDesc", activeTask.TaskID);
             setRoleList();
             return View(activeTask);
+
         }
 
         // GET: ActiveTasks/Edit/5
@@ -177,6 +178,17 @@ namespace EmployeeManagement.Controllers
                            Selected = x.RoleRate == EmployeeCurrentRate
                        });
             ViewBag.Roles = roles;
+        }
+
+        private bool maxDailyWorkHours(int employeeId, DateTime currentStartDate)
+        {
+            var activeEmployeeTaskIds = _context.ActiveTasks.ToList()
+                .Where(t => t.EmployeeID == employeeId && t.TaskStartDate.DayOfYear == currentStartDate.DayOfYear)
+                .Select(t => t.TaskID);    
+
+            //var taskDurations = _context.Tasks?????????
+
+            return true;
         }
     }
 }
