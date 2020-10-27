@@ -66,14 +66,18 @@ namespace EmployeeManagement.Migrations
                 name: "ActiveTasks",
                 columns: table => new
                 {
+                    WIPID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TaskID = table.Column<int>(nullable: false),
+                    EmployeeID = table.Column<int>(nullable: false),
+                    EmployeeCurrentRate = table.Column<int>(nullable: false),
                     TaskStartDate = table.Column<DateTime>(nullable: false),
                     TaskEndDate = table.Column<DateTime>(nullable: false),
-                    TimeCompleted = table.Column<int>(nullable: false),
-                    EmployeeID = table.Column<int>(nullable: false),
-                    TaskID = table.Column<int>(nullable: false)
+                    TimeCompleted = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_ActiveTasks", x => x.WIPID);
                     table.ForeignKey(
                         name: "FK_ActiveTasks_Employees_EmployeeID",
                         column: x => x.EmployeeID,

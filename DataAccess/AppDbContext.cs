@@ -14,11 +14,6 @@ namespace EmployeeManagement.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ActiveTask>(at =>
-                {
-                    at.HasNoKey();
-                });
-
             //Add initial seed data
             LoadSeedData(modelBuilder);
         }

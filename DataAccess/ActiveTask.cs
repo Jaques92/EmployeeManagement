@@ -10,6 +10,21 @@ namespace EmployeeManagement.DataAccess
     [Table("ActiveTasks")]
     public class ActiveTask
     {
+        [Column("WIPID")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
+        public int WIPID { get; set; }
+
+        [Required]
+        public int TaskID { get; set; }
+
+        [Required]
+        public int EmployeeID { get; set; }
+
+        [Required]
+        public int EmployeeCurrentRate { get; set; }
+
         [Column("TaskStartDate")]
         [Required]
         public DateTime TaskStartDate { get; set; }
@@ -20,12 +35,6 @@ namespace EmployeeManagement.DataAccess
         [Column("TimeCompleted")]
         [Required]
         public int TimeCompleted { get; set; }
-
-        [Required]
-        public int EmployeeID { get; set; }
-
-        [Required]
-        public int TaskID { get; set; }
 
         public Employee Employee { get; set; }
 
