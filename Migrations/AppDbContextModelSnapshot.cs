@@ -21,6 +21,15 @@ namespace EmployeeManagement.Migrations
 
             modelBuilder.Entity("EmployeeManagement.DataAccess.ActiveTask", b =>
                 {
+                    b.Property<int>("WIPID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("WIPID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EmployeeCurrentRate")
+                        .HasColumnType("int");
+
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
 
@@ -38,6 +47,8 @@ namespace EmployeeManagement.Migrations
                     b.Property<int>("TimeCompleted")
                         .HasColumnName("TimeCompleted")
                         .HasColumnType("int");
+
+                    b.HasKey("WIPID");
 
                     b.HasIndex("EmployeeID");
 
