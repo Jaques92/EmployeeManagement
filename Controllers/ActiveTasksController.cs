@@ -62,7 +62,7 @@ namespace EmployeeManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("WIPID,TaskID,EmployeeID,EmployeeCurrentRate,TaskStartDate,TaskEndDate,TimeCompleted")] ActiveTask activeTask)
         {
-            if (ModelState.IsValid && maxDailyWorkHours(activeTask.EmployeeID, activeTask.TaskStartDate))
+            if (ModelState.IsValid && !maxDailyWorkHours(activeTask.EmployeeID, activeTask.TaskStartDate, activeTask.TaskID))
             {
                 _context.Add(activeTask);
                 await _context.SaveChangesAsync();
@@ -180,12 +180,12 @@ namespace EmployeeManagement.Controllers
             ViewBag.Roles = roles;
         }
 
-        private bool maxDailyWorkHours(int employeeId, DateTime currentStartDate)
+        private bool maxDailyWorkHours(int employeeId, DateTime currentStartDate, int newTaskID)
         {
             int assignedHours = 0;
             var activeEmployeeTaskIds = _context.ActiveTasks.ToList()
                 .Where(t => t.EmployeeID == employeeId && t.TaskStartDate.DayOfYear == currentStartDate.DayOfYear)
-                .Select(t => t.TaskID);
+                .Select(t => t.TaskID).Append(newTaskID);
 
             var tasks = _context.Tasks.ToList();
 
