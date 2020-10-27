@@ -162,10 +162,9 @@ namespace EmployeeManagement.Migrations
                         .HasColumnName("TaskDesc")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TaskDuration")
-                        .IsRequired()
+                    b.Property<int>("TaskDuration")
                         .HasColumnName("TaskDuration")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<string>("TaskName")
                         .IsRequired()

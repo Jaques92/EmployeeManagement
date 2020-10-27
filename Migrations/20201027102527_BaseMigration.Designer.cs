@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201027052613_BaseMigration")]
+    [Migration("20201027102527_BaseMigration")]
     partial class BaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -164,10 +164,9 @@ namespace EmployeeManagement.Migrations
                         .HasColumnName("TaskDesc")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TaskDuration")
-                        .IsRequired()
+                    b.Property<int>("TaskDuration")
                         .HasColumnName("TaskDuration")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<string>("TaskName")
                         .IsRequired()

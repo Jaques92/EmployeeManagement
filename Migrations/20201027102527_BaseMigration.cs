@@ -29,7 +29,7 @@ namespace EmployeeManagement.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TaskName = table.Column<string>(nullable: false),
                     TaskDesc = table.Column<string>(nullable: false),
-                    TaskDuration = table.Column<string>(nullable: false)
+                    TaskDuration = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

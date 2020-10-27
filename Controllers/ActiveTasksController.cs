@@ -182,13 +182,32 @@ namespace EmployeeManagement.Controllers
 
         private bool maxDailyWorkHours(int employeeId, DateTime currentStartDate)
         {
+            int assignedHours = 0;
             var activeEmployeeTaskIds = _context.ActiveTasks.ToList()
                 .Where(t => t.EmployeeID == employeeId && t.TaskStartDate.DayOfYear == currentStartDate.DayOfYear)
-                .Select(t => t.TaskID);    
+                .Select(t => t.TaskID);
 
-            //var taskDurations = _context.Tasks?????????
+            var tasks = _context.Tasks.ToList();
 
-            return true;
+            foreach (int taskID in activeEmployeeTaskIds)
+            {
+                foreach(DataAccess.Task task in tasks)
+                {
+                    if (task.TaskID == taskID)
+                    {
+                        assignedHours = assignedHours + task.TaskDuration;
+                    }
+                }
+            }
+
+            if (assignedHours > 12)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
