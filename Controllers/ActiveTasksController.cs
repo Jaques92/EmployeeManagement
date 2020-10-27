@@ -33,6 +33,7 @@ namespace EmployeeManagement.Controllers
                 return NotFound();
             }
 
+            setRoleList();
             var activeTask = await _context.ActiveTasks
                 .Include(a => a.Employee)
                 .Include(a => a.Task)
@@ -50,6 +51,7 @@ namespace EmployeeManagement.Controllers
         {
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeEmail");
             ViewData["TaskID"] = new SelectList(_context.Tasks, "TaskID", "TaskDesc");
+            setRoleList();
             return View();
         }
 
@@ -68,6 +70,7 @@ namespace EmployeeManagement.Controllers
             }
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeEmail", activeTask.EmployeeID);
             ViewData["TaskID"] = new SelectList(_context.Tasks, "TaskID", "TaskDesc", activeTask.TaskID);
+            setRoleList();
             return View(activeTask);
         }
 
@@ -78,7 +81,7 @@ namespace EmployeeManagement.Controllers
             {
                 return NotFound();
             }
-
+            setRoleList();
             var activeTask = await _context.ActiveTasks.FindAsync(id);
             if (activeTask == null)
             {
@@ -86,6 +89,7 @@ namespace EmployeeManagement.Controllers
             }
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeEmail", activeTask.EmployeeID);
             ViewData["TaskID"] = new SelectList(_context.Tasks, "TaskID", "TaskDesc", activeTask.TaskID);
+            setRoleList();
             return View(activeTask);
         }
 
@@ -123,6 +127,7 @@ namespace EmployeeManagement.Controllers
             }
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeEmail", activeTask.EmployeeID);
             ViewData["TaskID"] = new SelectList(_context.Tasks, "TaskID", "TaskDesc", activeTask.TaskID);
+            setRoleList();
             return View(activeTask);
         }
 
@@ -160,6 +165,18 @@ namespace EmployeeManagement.Controllers
         private bool ActiveTaskExists(int id)
         {
             return _context.ActiveTasks.Any(e => e.WIPID == id);
+        }
+
+        private void setRoleList(int? EmployeeCurrentRate = null)
+        {
+            var roles = _context.Roles.ToList().Select(x =>
+                       new SelectListItem()
+                       {
+                           Value = x.RoleRate.ToString(),
+                           Text = x.RoleName,
+                           Selected = x.RoleRate == EmployeeCurrentRate
+                       });
+            ViewBag.Roles = roles;
         }
     }
 }
