@@ -68,6 +68,11 @@ namespace EmployeeManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                ModelState.AddModelError("Task", "Employee is already fully allocated");
+            }
+
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeEmail", activeTask.EmployeeID);
             ViewData["TaskID"] = new SelectList(_context.Tasks, "TaskID", "TaskDesc", activeTask.TaskID);
             setRoleList();
