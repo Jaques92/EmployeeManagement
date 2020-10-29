@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201027104417_BaseMigration")]
-    partial class BaseMigration
+    [Migration("20201029072057_MyBaseMigration")]
+    partial class MyBaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,10 +34,6 @@ namespace EmployeeManagement.Migrations
 
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("TaskEndDate")
-                        .HasColumnName("TaskEndDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("TaskID")
                         .HasColumnType("int");
@@ -113,10 +109,10 @@ namespace EmployeeManagement.Migrations
                         {
                             EmployeeID = 1,
                             EmployeeEmail = "jaquesg@company.co.za",
-                            EmployeeEndDate = new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(803),
+                            EmployeeEndDate = new DateTime(2020, 11, 5, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(5775),
                             EmployeeName = "Jaques",
                             EmployeePassword = "1234",
-                            EmployeeStartDate = new DateTime(2020, 10, 27, 12, 44, 17, 46, DateTimeKind.Local).AddTicks(9756),
+                            EmployeeStartDate = new DateTime(2020, 10, 29, 9, 20, 57, 434, DateTimeKind.Local).AddTicks(5484),
                             EmployeeSurname = "Greyling",
                             RoleID = 1
                         },
@@ -124,10 +120,10 @@ namespace EmployeeManagement.Migrations
                         {
                             EmployeeID = 2,
                             EmployeeEmail = "johanr@company.co.za",
-                            EmployeeEndDate = new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2068),
+                            EmployeeEndDate = new DateTime(2020, 11, 5, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7135),
                             EmployeeName = "Johan",
                             EmployeePassword = "qwer",
-                            EmployeeStartDate = new DateTime(2020, 10, 27, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2054),
+                            EmployeeStartDate = new DateTime(2020, 10, 29, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7121),
                             EmployeeSurname = "Rogers",
                             RoleID = 2
                         },
@@ -135,10 +131,10 @@ namespace EmployeeManagement.Migrations
                         {
                             EmployeeID = 3,
                             EmployeeEmail = "stacys@company.co.za",
-                            EmployeeEndDate = new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2101),
+                            EmployeeEndDate = new DateTime(2020, 11, 5, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7162),
                             EmployeeName = "Stacy",
                             EmployeePassword = "q1w2e3",
-                            EmployeeStartDate = new DateTime(2020, 10, 27, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2100),
+                            EmployeeStartDate = new DateTime(2020, 10, 29, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7160),
                             EmployeeSurname = "Smith",
                             RoleID = -1
                         });

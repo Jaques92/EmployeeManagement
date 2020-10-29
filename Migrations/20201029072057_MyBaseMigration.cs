@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeManagement.Migrations
 {
-    public partial class BaseMigration : Migration
+    public partial class MyBaseMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,7 +72,6 @@ namespace EmployeeManagement.Migrations
                     EmployeeID = table.Column<int>(nullable: false),
                     EmployeeCurrentRate = table.Column<int>(nullable: false),
                     TaskStartDate = table.Column<DateTime>(nullable: false),
-                    TaskEndDate = table.Column<DateTime>(nullable: false),
                     TimeCompleted = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -115,17 +114,17 @@ namespace EmployeeManagement.Migrations
             migrationBuilder.InsertData(
                 table: "Employees",
                 columns: new[] { "EmployeeID", "EmployeeEmail", "EmployeeEndDate", "EmployeeImage", "EmployeeName", "EmployeePassword", "EmployeeStartDate", "EmployeeSurname", "RoleID" },
-                values: new object[] { 3, "stacys@company.co.za", new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2101), null, "Stacy", "q1w2e3", new DateTime(2020, 10, 27, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2100), "Smith", -1 });
+                values: new object[] { 3, "stacys@company.co.za", new DateTime(2020, 11, 5, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7162), null, "Stacy", "q1w2e3", new DateTime(2020, 10, 29, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7160), "Smith", -1 });
 
             migrationBuilder.InsertData(
                 table: "Employees",
                 columns: new[] { "EmployeeID", "EmployeeEmail", "EmployeeEndDate", "EmployeeImage", "EmployeeName", "EmployeePassword", "EmployeeStartDate", "EmployeeSurname", "RoleID" },
-                values: new object[] { 1, "jaquesg@company.co.za", new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(803), null, "Jaques", "1234", new DateTime(2020, 10, 27, 12, 44, 17, 46, DateTimeKind.Local).AddTicks(9756), "Greyling", 1 });
+                values: new object[] { 1, "jaquesg@company.co.za", new DateTime(2020, 11, 5, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(5775), null, "Jaques", "1234", new DateTime(2020, 10, 29, 9, 20, 57, 434, DateTimeKind.Local).AddTicks(5484), "Greyling", 1 });
 
             migrationBuilder.InsertData(
                 table: "Employees",
                 columns: new[] { "EmployeeID", "EmployeeEmail", "EmployeeEndDate", "EmployeeImage", "EmployeeName", "EmployeePassword", "EmployeeStartDate", "EmployeeSurname", "RoleID" },
-                values: new object[] { 2, "johanr@company.co.za", new DateTime(2020, 11, 3, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2068), null, "Johan", "qwer", new DateTime(2020, 10, 27, 12, 44, 17, 48, DateTimeKind.Local).AddTicks(2054), "Rogers", 2 });
+                values: new object[] { 2, "johanr@company.co.za", new DateTime(2020, 11, 5, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7135), null, "Johan", "qwer", new DateTime(2020, 10, 29, 9, 20, 57, 435, DateTimeKind.Local).AddTicks(7121), "Rogers", 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ActiveTasks_EmployeeID",
