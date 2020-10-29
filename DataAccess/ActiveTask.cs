@@ -29,11 +29,7 @@ namespace EmployeeManagement.DataAccess
         [Required]
         public DateTime TaskStartDate { get; set; }
 
-        [Column("TaskEndDate")]
-        public DateTime TaskEndDate { get; set; }
-
         [Column("TimeCompleted")]
-        [Required]
         public int TimeCompleted { get; set; }
 
         public Employee Employee { get; set; }

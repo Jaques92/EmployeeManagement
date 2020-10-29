@@ -60,7 +60,7 @@ namespace EmployeeManagement.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("WIPID,TaskID,EmployeeID,EmployeeCurrentRate,TaskStartDate,TaskEndDate,TimeCompleted")] ActiveTask activeTask)
+        public async Task<IActionResult> Create([Bind("WIPID,TaskID,EmployeeID,EmployeeCurrentRate,TaskStartDate,TimeCompleted")] ActiveTask activeTask)
         {
             if (ModelState.IsValid && !maxDailyWorkHours(activeTask.EmployeeID, activeTask.TaskStartDate, activeTask.TaskID))
             {
@@ -104,7 +104,7 @@ namespace EmployeeManagement.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("WIPID,TaskID,EmployeeID,EmployeeCurrentRate,TaskStartDate,TaskEndDate,TimeCompleted")] ActiveTask activeTask)
+        public async Task<IActionResult> Edit(int id, [Bind("WIPID,TaskID,EmployeeID,EmployeeCurrentRate,TaskStartDate,TimeCompleted")] ActiveTask activeTask)
         {
             if (id != activeTask.WIPID)
             {
