@@ -1,0 +1,47 @@
+﻿@model EmployeeManagement.Models.SalaryModel
+
+@{
+    Layout = "_layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+    <h4>Salary Calculator</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="EmployeeID" class="control-label"></label>
+                    <select asp-for="EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SalaryStartDate" class="control-label"></label>
+                    <input asp-for="SalaryStartDate" class="form-control" />
+                    <span asp-validation-for="SalaryStartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SalaryEndDate" class="control-label"></label>
+                    <input asp-for="SalaryEndDate" class="form-control" />
+                    <span asp-validation-for="SalaryEndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Calculate" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
