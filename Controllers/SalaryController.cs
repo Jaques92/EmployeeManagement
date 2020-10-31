@@ -50,9 +50,7 @@ namespace EmployeeManagement.Controllers
                 ModelState.AddModelError("Task", "Employee is already fully allocated");
             }
 
-
             return View(salary);
-
         }
 
         public int CalcSalary(SalaryModel model)
