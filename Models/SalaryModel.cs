@@ -12,5 +12,6 @@ namespace EmployeeManagement.Models
         public DateTime SalaryStartDate { get; set; }
 
         public DateTime SalaryEndDate { get; set; }
+
     }
 }
